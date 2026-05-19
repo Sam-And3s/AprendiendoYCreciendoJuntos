@@ -146,7 +146,95 @@
   margin-left: 10px;
 }
 
+/* Tabs Styling */
+.tabs-container{
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabs-nav{
+  display: flex;
+  gap: 0;
+  background: linear-gradient(135deg, #5f27cd 0%, #541388 100%);
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.tab-btn{
+  flex: 1;
+  min-width: 120px;
+  padding: 16px 20px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.tab-btn:hover{
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active{
+  background: linear-gradient(135deg, #ff6ec7 0%, #ff6b6b 100%);
+  color: white;
+  border-bottom: 3px solid white;
+}
+
+.tabs-content{
+  padding: 40px 30px;
+  min-height: 300px;
+  max-height: 600px; /* cap visible height to 600px */
+  overflow-y: auto; /* show vertical scrollbar when content exceeds 600px */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+}
+
+.tab-pane{
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active{
+  display: block;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media(max-width:768px){
+
+  .tabs-nav{
+    flex-wrap: wrap;
+  }
+
+  .tab-btn{
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  .tabs-content{
+    padding: 25px 20px;
+    min-height: auto;
+    max-height: 50vh; /* reduce cap on small screens */
+    overflow-y: auto;
+  }
 
   .videos-header h2{
     font-size: 2rem;
@@ -386,17 +474,202 @@
 
   <section class="py-lg-13 py-8 bg-light bg-opacity-25" id="Cuentos">
     <div class="container">
-      <div class="row text-center">
-        <div class="col-lg-5 mx-auto">
+      <div class="row text-center" style="margin-bottom: -50px;">
+        <div class="col-lg-9 mx-auto">
           <div class="mb-10">
-            <span class="text-primary text-uppercase small fw-semibold" style="letter-spacing: .125rem;">Mentors</span>
-            <h2 class="fw-bold mt-4 mb-4">Learn From Industry<span class="text-primary"> Experts</span></h2>
+            <h2 class="fw-bold mt-4 mb-4" style="color: #541388; font-size: 50px;">Cuentos Y Preguntas</h2>
             <p class="mb-0">
-              Our mentors are industry leaders with years of experience in their respective fields.
+              ¡Bienvenido a nuestra biblioteca de cuentos! 🌈📚 Aquí encontrarás historias divertidas y llenas de aventuras para leer y disfrutar. Puedes elegir el cuento que más te guste dando clic en las pestañas de arriba. ✨ Lee con mucha atención y luego presiona el botón de preguntas para responderlas. 📝🌟
             </p>
           </div>
         </div>
       </div>
+      <div class="col-lg-6 mx-auto">
+          <div class="mb-10">
+            <h2 class="fw-bold mt-4 mb-4" style="font-size: 30px;">🧩 ¿Cómo responder las preguntas?</h2>
+            <p class="mb-0" style="margin-top: -70px;">
+              <br><br><b>
+
+                  <br>1️⃣ Lee el cuento con mucha atención. 👀📖
+                  <br>2️⃣ Presiona el botón “Responder preguntas”. ✨
+                  <br>3️⃣ Se abrirá una ventana con preguntas del cuento. 📝
+                  <br>4️⃣ Marca la respuesta que creas correcta. ✅
+                  <br>5️⃣ Cuando termines, presiona “Calificar” para descubrir cuántas respuestas acertaste. 🌟🎉
+
+                  <br><br>¡Diviértete aprendiendo y demuestra todo lo que entendiste del cuento! 🚀
+              </b>
+            </p>
+          </div>
+      </div>
+
+      <!-- Tabs Section -->
+      <div class="row mt-12 mb-12">
+        <div class="col-lg-10 mx-auto">
+          <div class="tabs-container">
+            <!-- Tab Navigation -->
+            <div class="tabs-nav">
+              <button class="tab-btn active" data-tab="tab1">Cuento de Caperucita Roja</button>
+              <button class="tab-btn" data-tab="tab2">La Piel del Cocodrilo</button>
+              <button class="tab-btn" data-tab="tab3">Las dos ranitas de Japón</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="tabs-content">
+              <div class="tab-pane active" id="tab1">
+                <p>
+                  Érase una vez una niñita que lucía una hermosa capa de color rojo. Como la niña la usaba muy a menudo, todos la llamaban Caperucita Roja.
+                  <br><br>Un día, la mamá de Caperucita Roja la llamó y le dijo:
+
+                  <br><br>—Abuelita no se siente muy bien, he horneado unas galleticas y quiero que tú se las lleves.
+
+                  <br><br>—Claro que sí —respondió Caperucita Roja, poniéndose su capa y llenando su canasta de galleticas recién horneadas.
+
+                  <br><br>Antes de salir, su mamá le dijo:
+
+                  <br><br>— Escúchame muy bien, quédate en el camino y nunca hables con extraños.
+
+                  <br><br>—Yo sé mamá —respondió Caperucita Roja y salió inmediatamente hacia la casa de la abuelita.
+
+                  <br><br>Para llegar a casa de la abuelita, Caperucita debía atravesar un camino a lo largo del espeso bosque. En el camino, se encontró con el lobo.
+
+                  <br><br>—Hola niñita, ¿hacia dónde te diriges en este maravilloso día? —preguntó el lobo.
+
+                  <br><br>Caperucita Roja recordó que su mamá le había advertido no hablar con extraños, pero el lobo lucía muy elegante, además era muy amigable y educado.
+
+                  <br><br>—Voy a la casa de abuelita, señor lobo —respondió la niña—. Ella se encuentra enferma y voy a llevarle estas galleticas para animarla un poco.
+
+                  <br><br>—¡Qué buena niña eres! —exclamó el lobo. —¿Qué tan lejos tienes que ir?
+
+                  <br><br>—¡Oh! Debo llegar hasta el final del camino, ahí vive abuelita—dijo Caperucita con una sonrisa.
+
+                  <br><br>—Te deseo un muy feliz día mi niña —respondió el lobo.
+
+                  <br><br>El lobo se adentró en el bosque. Él tenía un enorme apetito y en realidad no era de confiar. Así que corrió hasta la casa de la abuela antes de que Caperucita pudiera alcanzarlo. Su plan era comerse a la abuela, a Caperucita Roja y a todas las galleticas recién horneadas.
+
+                  <br><br>El lobo tocó la puerta de la abuela. Al verlo, la abuelita corrió despavorida dejando atrás su chal. El lobo tomó el chal de la viejecita y luego se puso sus lentes y su gorrito de noche. Rápidamente, se trepó en la cama de la abuelita, cubriéndose hasta la nariz con la manta. Pronto escuchó que tocaban la puerta:
+
+                  <br><br>—Abuelita, soy yo, Caperucita Roja.
+
+                  <br><br>Con vos disimulada, tratando de sonar como la abuelita, el lobo dijo:
+
+                  <br><br>—Pasa mi niña, estoy en camita.
+
+                  <br><br>Caperucita Roja pensó que su abuelita se encontraba muy enferma porque se veía muy pálida y sonaba terrible.
+
+                  <br><br>—¡Abuelita, abuelita, qué ojos más grandes tienes!
+
+                  <br><br>—Son para verte mejor —respondió el lobo.
+
+                  <br><br>—¡Abuelita, abuelita, qué orejas más grandes tienes!
+
+                  <br><br>—Son para oírte mejor —susurró el lobo.
+
+                  <br><br>—¡Abuelita, abuelita, que dientes más grandes tienes!
+
+                  <br><br>—¡Son para comerte mejor!
+
+                  <br><br>Con estas palabras, el malvado lobo tiró su manta y saltó de la cama. Asustada, Caperucita salió corriendo hacia la puerta. Justo en ese momento, un leñador se acercó a la puerta, la cual se encontraba entreabierta. La abuelita estaba escondida detrás de él.
+
+                  <br><br>Al ver al leñador, el lobo saltó por la ventana y huyó espantado para nunca ser visto.
+
+                  <br><br>La abuelita y Caperucita Roja agradecieron al leñador por salvarlas del malvado lobo y todos comieron galleticas con leche. Ese día Caperucita Roja aprendió una importante lección:
+
+                  “Nunca debes hablar con extraños”.
+                </p>
+                <div class="mt-4 text-center">
+                  <button type="button" class="btn btn-primary responder-btn" data-tab="tab1" data-bs-toggle="modal" data-bs-target="#quizModal">Responder Preguntas</button>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab2">
+                  <p>
+                    Cuenta la leyenda africana que, antes de que el hombre habitara la Tierra, el cocodrilo tenía una piel suave, lisa y dorada que resplandecía con los rayos del sol y a la luz de la luna.
+
+                    <br><br>El cocodrilo se pasaba todo el día sumergido en las aguas fangosas protegiendo su piel del sol y solo salía de noche. Los otros animales del pantano comenzaron a notar la belleza de la piel del cocodrilo y llegaban en manada para admirarlo.
+
+                    <br><br>El cocodrilo se sintió muy orgulloso de su piel y comenzó a salir durante el día para deleitarse con la admiración de los otros animales. Cada día, pasaba más y más tiempo fuera de las aguas fangosas, exponiendo su piel a los abrasadores rayos del sol africano.
+
+                    <br><br>—Soy muy hermoso, ¿no les parece? —les preguntaba a sus admiradores.
+
+                    <br><br>—¡Claro que sí! —respondían todos deslumbrados.
+
+                    <br><br>Pronto, los animales se cansaron de la actitud presumida del cocodrilo y dejaron de visitarlo.
+
+                    <br><br>El cocodrilo, con la esperanza de recuperar la atención perdida, pasó todo el día, todos los días, bajo el sol. Su piel se tornó gris, abultada y escamosa.
+
+                    <br><br>El cocodrilo nunca se recuperó de la vergüenza e incluso hoy desaparecerá de la vista ante la presencia de otros, dejando solo sus ojos y sus fosas nasales sobre la superficie del agua.
+                  </p>
+                  <div class="mt-4 text-center">
+                    <button type="button" class="btn btn-primary responder-btn" data-tab="tab2" data-bs-toggle="modal" data-bs-target="#quizModal">Responder Preguntas</button>
+                  </div>
+              </div>
+              <div class="tab-pane" id="tab3">
+                  <p>
+                    Esta es la historia de dos ranitas. Ambas vivían muy felices en Japón, pero en diferentes ciudades; una vivía en Kioto y la otra en Osaka.
+
+                    <br><br>Una mañana, las dos ranitas se despertaron muy aburridas y decidieron que era hora de explorar otros lugares:
+
+                    <br><br>—Hoy partiré hacia Osaka —se dijo la ranita de Kioto.
+
+                    <br><br>—Hoy viajaré a Kioto —se dijo la ranita de Osaka.
+
+                    <br><br>Sin saberlo, las ranitas empacaron sus cosas al mismo tiempo y salieron saltando hasta el camino de la montaña que unía las dos ciudades.
+
+                    <br><br>El viaje resultó ser más largo de lo planeado y por esas cosas del destino; las dos ranitas, muy agotadas, se detuvieron en la cima de la montaña.
+
+                    <br><br>Al encontrarse, las dos ranitas se observaron con emoción. Luego, se saludaron y entablaron conversación. Fue así como supieron hacia donde se dirigían.
+
+                    <br><br>—¡Voy a Osaka! — dijo la ranita de Kioto—. Escuché que es una ciudad esplendorosa.
+
+                    <br><br>—¡Y yo voy a Kioto! — respondió la ranita de Osaka—. Todos dicen que es una ciudad espléndida.
+
+                    <br><br>—Es una pena que no seamos más altas— dijo la ranita de Kioto—. Si lo fuéramos, podríamos ver desde lo alto de esta montaña la ciudad que queremos visitar.
+
+                    <br><br>—¡Tengo una idea! — exclamó la ranita de Osaka—. Parémonos de puntitas con nuestras patas traseras y apoyémonos una a la otra. Así podemos echarle un vistazo a la ciudad a donde vamos.
+
+                    <br><br>Entonces, las dos ranitas se pararon de puntitas y se tomaron de las patas delanteras para no caerse.
+
+                    <br><br>La rana de Kioto alzó la cabeza y miró hacia Osaka. La rana de Osaka también alzó la cabeza y miró hacia Kioto
+
+                    <br><br>—¡Qué decepción! — dijo la ranita de Kioto—. Osaka es igual a Kioto.
+
+                    <br><br>—¡Qué desilusión! — dijo la ranita de Osaka—. Kioto es igual a Osaka.
+
+                    <br><br>En ese momento, la ranita de Kioto dijo:
+
+                    <br><br>—Me alegra que hayamos descubierto esto, ahora podemos ahorrarnos el largo viaje y regresar a casa.
+
+                    <br><br>Las dos se despidieron y comenzaron a saltar muy felices de vuelta a sus ciudades.
+
+                    <br><br>Sin embargo, las dos ranitas olvidaron que todas las ranitas del mundo tienen los ojos en la parte de arriba de la cabeza. En realidad, veían lo que estaba atrás y no adelante. ¡La ranita de Kioto estaba mirando hacia Kioto y la de Osaka estaba mirando hacia Osaka!
+                  </p>
+                  <div class="mt-4 text-center">
+                    <button type="button" class="btn btn-primary responder-btn" data-tab="tab3" data-bs-toggle="modal" data-bs-target="#quizModal">Responder Preguntas</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Quiz Modal -->
+        <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="quizModalLabel">Responder Preguntas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="quizQuestions"></div>
+                <div id="quizResult" class="mt-3"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="gradeQuizBtn" class="btn btn-success">Calificar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div class="row g-4">
         <!-- Mentor Card 1 -->

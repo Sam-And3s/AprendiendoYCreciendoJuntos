@@ -69,6 +69,100 @@ nextBtn.addEventListener('click', () => {
 
 });
 
+// Quiz modal and grading logic
+document.addEventListener('DOMContentLoaded', function() {
+  const quizQuestions = {
+    tab1: [
+      { q: '¿Cómo llamaban a la niña del cuento?', options: ['Caperucita Roja', 'Blancanieves', 'Cenicienta', 'Bella'], answer: 0 },
+      { q: '¿Qué llevaba Caperucita en su canasta?', options: ['Pan', 'Galleticas', 'Arepas', 'Las Pastas de la Abuela'], answer: 1 },
+      { q: '¿A quién iba a visitar Caperucita Roja?', options: ['A su mamá', 'A su amiga', 'A su abuelita', 'Al lobo'], answer: 2 },
+      { q: '¿Quién se disfrazó de la abuelita?', options: ['Caperucita Roja', 'El lobo', 'El leñador', 'Un vecino'], answer: 1 },
+      { q: '¿Qué aprendió Caperucita Roja al final?', options: ['A cocinar galletas', 'A no decir mentiras', 'A correr más rápido', 'A no hablar con extraños'], answer: 3 }
+    ],
+    tab2: [
+      { q: '¿Cómo era la piel del cocodrilo al comienzo del cuento?', options: ['Suave y dorada', 'Negra y áspera', 'Verde y peluda', 'Blanca y brillante'], answer: 0 },
+      { q: '¿Dónde pasaba el tiempo el cocodrilo?', options: ['En una cueva', 'En las aguas fangosas', 'En la montaña', 'En el río'], answer: 1 },
+      { q: '¿Por qué el cocodrilo empezó a salir durante el día?', options: ['Porque tenía hambre', 'Porque quería dormir', 'Porque quería que admiraran su piel', 'Porque quería jugar'], answer: 2 },
+      { q: '¿Qué pasó con la piel del cocodrilo?', options: ['Se volvió brillante', 'Se volvió azul', 'Se volvió verde', 'Se volvió gris y escamosa'], answer: 3 },
+      { q: '¿Qué enseñanza deja el cuento?', options: ['Que no debemos ser presumidos', 'Que el sol siempre es malo', 'Que debemos dormir mucho', 'Que no debemos salir de casa'], answer: 0 }
+    ],
+    tab3: [
+      { q: '¿Dónde vivían las dos ranitas?', options: ['En China', 'En Korea', 'En Japón', 'En Colombia'], answer: 2 },
+      { q: '¿A qué ciudad quería viajar la ranita de Kioto?', options: ['Ibagué', 'Osaka', 'Kioto', 'Tokio'], answer: 1 },
+      { q: '¿Dónde se encontraron las dos ranitas?', options: ['En un río', 'En un bosque', 'Al otro lado de la montaña', 'En la cima de una montaña'], answer: 3 },
+      { q: '¿Por qué pensaron que las ciudades eran iguales?', options: ['Porque estaban mirando hacia atrás', 'Porque alguien se los dijo', 'Porque ya las conocían', 'Porque eran idénticas'], answer: 0 },
+      { q: '¿Qué hicieron las ranitas al final?', options: ['Cogieron un avión', 'Siguieron viajando', 'Regresaron a casa', 'Se quedaron en la montaña'], answer: 2 }
+    ]
+  };
+
+  const quizModalEl = document.getElementById('quizModal');
+  const quizQuestionsContainer = document.getElementById('quizQuestions');
+  const quizResult = document.getElementById('quizResult');
+  const gradeBtn = document.getElementById('gradeQuizBtn');
+  let currentQuizKey = null;
+
+  if (quizModalEl && quizQuestionsContainer && gradeBtn) {
+    quizModalEl.addEventListener('show.bs.modal', function (event) {
+      const trigger = event.relatedTarget;
+      const tab = trigger ? trigger.getAttribute('data-tab') : 'tab1';
+      currentQuizKey = tab || 'tab1';
+      renderQuestions(currentQuizKey);
+      quizResult.innerHTML = '';
+    });
+
+    function renderQuestions(key) {
+      const qs = quizQuestions[key] || [];
+      quizQuestionsContainer.innerHTML = '';
+      qs.forEach((item, idx) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'mb-3';
+
+        const title = document.createElement('p');
+        title.className = 'fw-bold mb-2';
+        title.textContent = `${idx + 1}. ${item.q}`;
+        wrapper.appendChild(title);
+
+        const form = document.createElement('div');
+        item.options.forEach((opt, i) => {
+          const id = `q${idx}_opt${i}`;
+          const div = document.createElement('div');
+          div.className = 'form-check';
+
+          const input = document.createElement('input');
+          input.className = 'form-check-input';
+          input.type = 'radio';
+          input.name = `q${idx}`;
+          input.id = id;
+          input.value = i;
+
+          const label = document.createElement('label');
+          label.className = 'form-check-label ms-2';
+          label.setAttribute('for', id);
+          label.textContent = opt;
+
+          div.appendChild(input);
+          div.appendChild(label);
+          form.appendChild(div);
+        });
+
+        wrapper.appendChild(form);
+        quizQuestionsContainer.appendChild(wrapper);
+      });
+    }
+
+    gradeBtn.addEventListener('click', function() {
+      if (!currentQuizKey) return;
+      const qs = quizQuestions[currentQuizKey] || [];
+      let score = 0;
+      qs.forEach((item, idx) => {
+        const sel = document.querySelector(`input[name="q${idx}"]:checked`);
+        if (sel && parseInt(sel.value, 10) === item.answer) score++;
+      });
+      quizResult.innerHTML = `<div class="alert alert-info">Resultado: ${score}/${qs.length}</div>`;
+    });
+  }
+});
+
 prevBtn.addEventListener('click', () => {
 
   pauseVideos();
@@ -79,6 +173,30 @@ prevBtn.addEventListener('click', () => {
   });
 
 });
+
+// Tabs functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const tabId = this.getAttribute('data-tab');
+      
+      // Remove active class from all buttons and panes
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      
+      // Add active class to clicked button and corresponding pane
+      this.classList.add('active');
+      const activePane = document.getElementById(tabId);
+      if (activePane) {
+        activePane.classList.add('active');
+      }
+    });
+  });
+});
+
 
 
 
