@@ -40,55 +40,45 @@ window.addEventListener('DOMContentLoaded',updateActiveNavLink);
 
 const track = document.querySelector('.carousel-track');
 const slides = track ? Array.from(track.querySelectorAll('.video-card')) : [];
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.carousel-control-next');
+const prevBtn = document.querySelector('.carousel-control-prev');
 let currentSlide = 0;
-const carouselContainer = document.querySelector('.carousel-container');
 
-function updateCarousel() {
-  if (!track || !slides.length) return;
-  // Ensure each slide matches the usable width inside the carousel container.
-  const containerWidth = (carouselContainer && carouselContainer.clientWidth) || track.clientWidth;
-  const prevW = prevBtn ? prevBtn.offsetWidth : 0;
-  const nextW = nextBtn ? nextBtn.offsetWidth : 0;
-  const cs = window.getComputedStyle(track);
-  const paddingLeft = parseFloat(cs.paddingLeft) || 0;
-  const paddingRight = parseFloat(cs.paddingRight) || 0;
-  const gap = parseFloat(cs.gap || cs.getPropertyValue('column-gap') || '0') || 0;
+function pauseVideos(){
 
-  // Available width for one slide (subtract buttons and paddings and a small margin)
-  const availableWidth = Math.max(0, containerWidth - prevW - nextW - paddingLeft - paddingRight - 20);
-  slides.forEach(s => {
-    s.style.width = availableWidth + 'px';
-    s.style.outline = 'none'; // remove debug outlines if present
+  const videos = document.querySelectorAll('.youtube-video');
+
+  videos.forEach(video => {
+
+    let videoSrc = video.src;
+
+    video.src = videoSrc;
+
   });
 
-  const slideWidth = slides[0].offsetWidth;
-  const translateX = currentSlide * (slideWidth + gap);
-  track.style.transform = `translateX(-${translateX}px)`;
-  if (prevBtn) prevBtn.disabled = currentSlide === 0;
-  if (nextBtn) nextBtn.disabled = currentSlide === slides.length - 1;
 }
 
-if (nextBtn) {
-  nextBtn.addEventListener('click', () => {
-    if (currentSlide < slides.length - 1) {
-      currentSlide += 1;
-      updateCarousel();
-    }
+nextBtn.addEventListener('click', () => {
+
+  pauseVideos();
+
+  track.scrollBy({
+    left: 370,
+    behavior: 'smooth'
   });
-}
 
-if (prevBtn) {
-  prevBtn.addEventListener('click', () => {
-    if (currentSlide > 0) {
-      currentSlide -= 1;
-      updateCarousel();
-    }
+});
+
+prevBtn.addEventListener('click', () => {
+
+  pauseVideos();
+
+  track.scrollBy({
+    left: -370,
+    behavior: 'smooth'
   });
-}
 
-window.addEventListener('resize', updateCarousel);
-window.addEventListener('load', updateCarousel);
-window.addEventListener('DOMContentLoaded', updateCarousel);
+});
+
+
 

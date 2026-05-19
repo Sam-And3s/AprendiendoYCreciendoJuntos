@@ -84,7 +84,7 @@
 
 .video-frame iframe{
   width: 100%;
-  height: 100%;
+  height: 600px;
   border: none;
 }
 
@@ -154,7 +154,22 @@
 
   .video-card{
     min-width: 85%;
-    max-width: 85%;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .video-frame{
+    height: auto;
+  }
+
+  .video-frame iframe{
+    width: 100%;
+    height: 260px;
+    border: none;
+  }
+
+  .video-content{
+    padding: 16px;
   }
 
   .carousel-control-prev,
@@ -163,7 +178,13 @@
     width: 45px;
     height: 45px;
     font-size: 1.2rem;
+  }
+
+  .carousel-control-prev{
     left: 5px;
+  }
+
+  .carousel-control-next{
     right: 5px;
   }
 
@@ -244,14 +265,14 @@
           </div>
         </div>
       </div>
-      <div id="carouselExample" class="carousel slide">
+      <div id="carouselExample" class="carousel slide col-lg-10 mx-auto">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <!-- VIDEO 1 -->
               <div class="video-card">
 
                 <div class="video-frame">
-                  <iframe
+                  <iframe class="youtube-video"
                     src="https://www.youtube.com/embed/3gzHk9aZdOc"
                     title="Ortografía Segundo de Primaria"
                     allowfullscreen>
@@ -262,8 +283,7 @@
                   <h3>✨ La aventura de la buena ortografía</h3>
 
                   <p>
-                    Descubre por qué las mayúsculas, las tildes,
-                    las comas y la letra H son tan importantes. 📝🌟
+                    En este divertido video descubrirás por qué las mayúsculas, las tildes, las comas y la letra H son tan importantes. 🔤📝 <br>Acompaña esta aventura y aprende cómo escribir mejor mientras ayudas a salvar la buena ortografía. 🌟
                   </p>
                 </div>
 
@@ -274,19 +294,18 @@
               <div class="video-card">
 
                 <div class="video-frame">
-                  <iframe
-                    src="https://youtu.be/BHdjPe1TJXg"
-                    title="Reglas de Ortografía"
+                  <iframe class="youtube-video"
+                    src="https://www.youtube.com/embed/tPoAaSCA11o"
+                    title="Uso de la m antes de b y p"
                     allowfullscreen>
                   </iframe>
                 </div>
 
                 <div class="video-content">
-                  <h3>📚 Reglas mágicas para escribir mejor</h3>
+                  <h3>✏️ La regla de la M antes de B y P</h3>
 
                   <p>
-                    Aprende nuevas reglas, palabras y secretos
-                    para convertirte en un campeón de la escritura. ✏️🎉
+                    En este divertido video aprenderás una regla muy importante para escribir mejor. 🔤✨ <br> Descubre cuándo usar la letra M antes de la B y la P con ejemplos fáciles y divertidos. 🌟📝
                   </p>
                 </div>
 
@@ -297,22 +316,60 @@
               <div class="video-card">
 
                 <div class="video-frame">
-                  <iframe
+                  <iframe class="youtube-video"
                     src="https://www.youtube.com/embed/Z6uotoxBRRY"
                     title="Uso de la C S y Z"
                     allowfullscreen>
                   </iframe>
                 </div>
-
                 <div class="video-content">
                   <h3>🔠 El secreto de la C, S y Z</h3>
 
                   <p>
-                    Descubre trucos fáciles y divertidos para usar
-                    correctamente estas letras al escribir. 🌟📝
+                    ¿Alguna vez te has confundido al escribir palabras con C, S o Z? 🤔<br>
+                    En este video aprenderás trucos fáciles y divertidos para usar estas letras correctamente y mejorar tu escritura todos los días. 🌟📝
                   </p>
                 </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <!-- VIDEO 4 -->
+              <div class="video-card">
 
+                <div class="video-frame">
+                  <iframe class="youtube-video"
+                    src="https://www.youtube.com/embed/ccK3YZjInME"
+                    title="Las Sílabas para niños . Videos Educativos para Niños"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-content">
+                  <h3>🔠 Aprendamos las sílabas</h3>
+
+                  <p>
+                    ¿Sabías que las palabras se pueden separar en pequeñas partes llamadas sílabas? 🤔📚 <br> En este video aprenderás a separar palabras y descubrir cuál es la sílaba que suena más fuerte. 🎶✨
+                  </p>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <!-- VIDEO 5 -->
+              <div class="video-card">
+
+                <div class="video-frame">
+                  <iframe class="youtube-video"
+                    src="https://www.youtube.com/embed/2N9KuIeYpB8"
+                    title="🧠 Ortografía para niños: B y V con juegos y trucos para no confundirte | Primaria"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-content">
+                  <h3>🧠 El juego de la B y la V</h3>
+
+                  <p>
+                    ¡Aprender ortografía también puede ser un juego! 🎉✏️ <br> En este video descubrirás trucos y reglas fáciles para saber cuándo usar la B y cuándo usar la V mientras te diviertes aprendiendo. 🌈🔤
+                  </p>
+                </div>
               </div>
           </div>
         </div>
@@ -325,346 +382,6 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div>
-        <!-- Course Card Start -->
-        <div class="row g-4">
-          <!-- Course Card 1 -->
-          <div class="col-lg-3 col-md-6">
-
-            <div class="card  shadow-sm h-100 rounded-5 card-lift">
-              <div class="position-relative overflow-hidden">
-                <img src="./assets/images/course-img-1.jpg" class="rounded-top-5 card-img-top" alt="Course 1">
-                <div class="position-absolute top-0 start-0 p-3">
-                  <span class="badge bg-warning  rounded-pill fw-normal text-xs">Development</span>
-                </div>
-              </div>
-              <div class="card-body p-6">
-
-                <h3 class="mb-1 fs-6">
-                  Web Development Bootcamp</h3>
-                <div class="text-xs d-flex gap-2 align-items-center mt-4 mb-8">
-                  <img src="./assets/images/avatar-1.jpg" alt="" class="avatar avatar-xs rounded-circle">
-                  <span>Trisha leo </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-clock">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="12" cy="12" r="9" />
-                        <polyline points="12 7 12 12 15 15" />
-                      </svg>
-                    </span>
-                    <span>12 weeks</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-users">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                      </svg>
-                    </span>
-                    <span>2.4K</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                        fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                          d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                      </svg>
-                    </span>
-                    <span>4.9</span>
-                  </div>
-
-
-
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                  <span class="fs-5 text-dark fw-bold">$49</span>
-                  <a href="#" class="small link-primary "><span>Enroll now</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-arrow-right ms-1">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="13" y1="18" x2="19" y2="12"></line>
-                        <line x1="13" y1="6" x2="19" y2="12"></line>
-                      </svg>
-                    </span>
-
-                </div>
-              </div>
-
-            </div>
-            </a>
-          </div>
-          <!-- Course Card 2 -->
-          <div class="col-lg-3 col-md-6">
-            <div class="card  shadow-sm h-100 rounded-5 card-lift">
-              <div class="position-relative overflow-hidden">
-                <img src="./assets/images/course-img-2.jpg" class="rounded-top-5 card-img-top" alt="Course 2">
-                <div class="position-absolute top-0 start-0 p-3">
-                  <span class="badge bg-danger rounded-pill fw-normal text-xs">Design</span>
-                </div>
-
-              </div>
-              <div class="card-body p-6">
-
-                <h3 class="mb-1 fs-6">
-                  UI/UX Design Masterclass</h3>
-                <div class="text-xs d-flex gap-2 align-items-center mt-4 mb-8">
-                  <img src="./assets/images/avatar-2.jpg" alt="" class="avatar avatar-xs rounded-circle">
-                  <span>Sarah Johnson </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-clock">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="12" cy="12" r="9" />
-                        <polyline points="12 7 12 12 15 15" />
-                      </svg>
-                    </span>
-                    <span>8 weeks</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-users">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                      </svg>
-                    </span>
-                    <span>1.8K</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                        fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                          d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                      </svg>
-                    </span>
-                    <span>4.8</span>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                  <span class="fs-5 text-dark fw-bold">$79</span>
-                  <a href="#" class="small link-primary "><span>Enroll now</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-arrow-right ms-1">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="13" y1="18" x2="19" y2="12"></line>
-                        <line x1="13" y1="6" x2="19" y2="12"></line>
-                      </svg>
-                    </span>
-                  </a>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Course Card 3 -->
-          <div class="col-lg-3 col-md-6">
-            <div class="card  shadow-sm h-100 rounded-5 card-lift">
-              <div class="position-relative overflow-hidden">
-                <img src="./assets/images/course-img-3.jpg" class="rounded-top-5 card-img-top" alt="Course 3">
-                <div class="position-absolute top-0 start-0 p-3">
-                  <span class="badge bg-info rounded-pill fw-normal text-xs">Data Science</span>
-                </div>
-              </div>
-              <div class="card-body p-6">
-
-                <h3 class="mb-1 fs-6">
-                  Data Science & Analytics</h3>
-                <div class="text-xs d-flex gap-2 align-items-center mt-4 mb-8">
-                  <img src="./assets/images/avatar-3.jpg" alt="" class="avatar avatar-xs rounded-circle">
-                  <span>Mike Chen </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-clock">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="12" cy="12" r="9" />
-                        <polyline points="12 7 12 12 15 15" />
-                      </svg>
-                    </span>
-                    <span>16 weeks</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-users">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                      </svg>
-                    </span>
-                    <span>3.2K</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                        fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                          d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                      </svg>
-                    </span>
-                    <span>4.9</span>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                  <span class="fs-5 text-dark fw-bold">$129</span>
-                  <a href="#" class="small link-primary "><span>Enroll now</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-arrow-right ms-1">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="13" y1="18" x2="19" y2="12"></line>
-                        <line x1="13" y1="6" x2="19" y2="12"></line>
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Course Card 4 -->
-          <div class="col-lg-3 col-md-6">
-            <div class="card  shadow-sm h-100 rounded-5 card-lift">
-              <div class="position-relative overflow-hidden">
-                <img src="./assets/images/course-img-4.jpg" class="rounded-top-5 card-img-top" alt="Course 4">
-                <div class="position-absolute top-0 start-0 p-3">
-                  <span class="badge bg-success rounded-pill fw-normal text-xs">Marketing</span>
-                </div>
-              </div>
-              <div class="card-body p-6">
-
-                <h3 class="mb-1 fs-6">
-                  Digital Marketing Pro</h3>
-                <div class="text-xs d-flex gap-2 align-items-center mt-4 mb-8">
-                  <img src="./assets/images/avatar-4.jpg" alt="" class="avatar avatar-xs rounded-circle">
-                  <span>Emma Davis</span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-clock">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="12" cy="12" r="9" />
-                        <polyline points="12 7 12 12 15 15" />
-                      </svg>
-                    </span>
-                    <span>6 weeks</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-users">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        <path d="M21 21v-2a4 4 0  0 0 -3 -3.85" />
-                      </svg>
-                    </span>
-                    <span>1.5K</span>
-                  </div>
-                  <div class="text-xs align-items-center d-flex gap-1 lh-1">
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                        fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                          d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                      </svg>
-                    </span>
-                    <span>4.7</span>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                  <span class="fs-5 text-dark fw-bold">$69</span>
-                  <a href="#" class="small link-primary "><span>Enroll now</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-arrow-right ms-1">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="13" y1="18" x2="19" y2="12"></line>
-                        <line x1="13" y1="6" x2="19" y2="12"></line>
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center mt-10">
-            <a href="#" class="btn btn-outline-dark"> <span>
-                View All Courses
-              </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-arrow-right ms-1">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <line x1="13" y1="18" x2="19" y2="12"></line>
-                  <line x1="13" y1="6" x2="19" y2="12"></line>
-                </svg>
-              </span>
-            </a>
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
   </section>
 
   <section class="py-lg-13 py-8 bg-light bg-opacity-25" id="Cuentos">
