@@ -195,6 +195,79 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Independent Participa tab logic
+  const participaContainers = document.querySelectorAll('.participa-tabs-container');
+  participaContainers.forEach(container => {
+    const buttons = container.querySelectorAll('.participa-tab-btn');
+    const panes = container.querySelectorAll('.participa-tab-pane');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        panes.forEach(pane => pane.classList.remove('active'));
+
+        this.classList.add('active');
+        const activePane = container.querySelector(`#${tabId}`);
+        if (activePane) {
+          activePane.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // Participa form submit handlers (real email sending via backend)
+  const participaForms = document.querySelectorAll('.participa-form');
+  participaForms.forEach(form => {
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const email = form.dataset.emailAddress || '';
+      const subject = form.dataset.subject || 'Formulario de Participa';
+      const formData = new FormData(form);
+      formData.append('subject', subject);
+      if (email) {
+        formData.append('to', email);
+      }
+
+      const feedback = form.querySelector('.form-feedback');
+      if (feedback) {
+        feedback.innerHTML = '<div class="alert alert-info">Enviando mensaje...</div>';
+      }
+
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.message || 'Error al enviar el formulario.');
+        }
+
+        if (feedback) {
+          feedback.innerHTML = `
+            <div class="alert alert-success">
+              <strong>¡Listo!</strong> Tu formulario se envió correctamente.
+            </div>
+          `;
+        }
+
+        form.reset();
+      } catch (error) {
+        if (feedback) {
+          feedback.innerHTML = `
+            <div class="alert alert-danger">
+              <strong>Error:</strong> ${error.message}
+            </div>
+          `;
+        }
+      }
+    });
+  });
 });
 
 

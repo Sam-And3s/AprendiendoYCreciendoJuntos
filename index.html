@@ -196,6 +196,65 @@
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
 }
 
+.participa-tabs-container{
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(84, 19, 136, 0.12);
+}
+
+.participa-tabs-nav{
+  display: flex;
+  gap: 0;
+  background: linear-gradient(135deg, #541388 0%, #8a4fff 100%);
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.participa-tab-btn{
+  flex: 1;
+  min-width: 160px;
+  padding: 16px 20px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.participa-tab-btn:hover,
+.participa-tab-btn.active{
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.participa-tab-btn.active{
+  background: white;
+  color: #541388;
+}
+
+.participa-tabs-content{
+  padding: 30px;
+}
+
+.participa-tab-pane{
+  display: none;
+}
+
+.participa-tab-pane.active{
+  display: block;
+}
+
+.participa-form .form-label{
+  font-weight: 600;
+}
+
+.participa-form .form-feedback{
+  min-height: 40px;
+}
+
 .tab-pane{
   display: none;
   animation: fadeIn 0.3s ease;
@@ -234,6 +293,21 @@
     min-height: auto;
     max-height: 50vh; /* reduce cap on small screens */
     overflow-y: auto;
+  }
+
+  .participa-tabs-nav{
+    flex-wrap: wrap;
+  }
+
+  .participa-tab-btn{
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .participa-tabs-content{
+    padding: 20px;
   }
 
   .videos-header h2{
@@ -298,7 +372,6 @@
           <li class="nav-item"><a href="#Cuentos" class="nav-link">Cuentos Y Preguntas</a></li>
           <li class="nav-item"><a href="#Ortografia" class="nav-link">Practica tu Ortagrafía</a></li>
           <li class="nav-item"><a href="#Participa" class="nav-link">¡Participa!</a></li>
-          <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
         </ul>
       </div>
     </div>
@@ -650,1032 +723,144 @@
           </div>
         </div>
       </div>
-
-        <!-- Quiz Modal -->
-        <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="quizModalLabel">Responder Preguntas</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div id="quizQuestions"></div>
-                <div id="quizResult" class="mt-3"></div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="gradeQuizBtn" class="btn btn-success">Calificar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <div class="row g-4">
-        <!-- Mentor Card 1 -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card  shadow-sm h-100 rounded-5 text-center p-6 card-lift">
-            <div class="position-relative mb-4"><img src="./assets/images/avatar-4.jpg" alt="Mentor 1"
-                class="rounded-circle mb-4 mx-auto avatar avatar-xl border border-3 border-warning" />
-              <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                <span class="badge bg-warning text-xs">
-                  <span> 4.9</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-star text-white">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <h3 class="h6 fw-bold mb-1">John Smith</h3>
-            <span class="text-muted mb-3 d-block text-xs">Web Development Expert</span>
-            <p class="mb-4">
-              8+ years experience in data analysis and machine learning. Former Data Scientist at Facebook.
-            </p>
-            <div class="d-flex justify-content-center gap-6 small">
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">20K+</span>
-                <span>Students</span>
-              </div>
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">10</span>
-                <span>Courses</span>
-              </div>
-            </div>
-            <div class="d-flex flex-row align-items-center justify-content-center gap-2 mt-4 mb-2">
-
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8 11v5" />
-                  <path d="M8 8v.01" />
-                  <path d="M12 16v-5" />
-                  <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-                  <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-brand-github ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12 12 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-        <!-- Mentor Card 2 -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card  shadow-sm h-100 rounded-5 text-center p-6 card-lift">
-            <div class="position-relative mb-4"><img src="./assets/images/avatar-5.jpg" alt="Mentor 2"
-                class="rounded-circle mb-4 mx-auto avatar avatar-xl border border-3 border-warning" />
-              <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                <span class="badge bg-warning text-xs">
-                  <span> 4.8</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-star text-white">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <h3 class="h6 fw-bold mb-1">Sarah Johnson</h3>
-            <span class="text-muted mb-3 d-block text-xs">Digital Marketing Guru</span>
-            <p class="mb-4">
-              10+ years experience in digital marketing and SEO strategies. Former Marketing Manager at Google.
-            </p>
-            <div class="d-flex justify-content-center gap-6 small">
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">15K+</span>
-                <span>Students</span>
-              </div>
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">8</span>
-                <span>Courses</span>
-              </div>
-            </div>
-            <div class="d-flex flex-row align-items-center justify-content-center gap-2 mt-4 mb-2">
-
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8 11v5" />
-                  <path d="M8 8v.01" />
-                  <path d="M12 16v-5" />
-                  <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-                  <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-brand-github ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12 12 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-
-              </a>
-            </div>
-
-          </div>
-        </div>
-        <!-- Mentor Card 3 -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card  shadow-sm h-100 rounded-5 text-center p-6 card-lift">
-            <div class="position-relative mb-4"><img src="./assets/images/avatar-6.jpg" alt="Mentor 3"
-                class="rounded-circle mb-4 mx-auto avatar avatar-xl border border-3 border-warning" />
-              <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                <span class="badge bg-warning text-xs">
-                  <span> 4.9</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-star text-white">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <h3 class="h6 fw-bold mb-1">Mike Chen</h3>
-            <span class="text-muted mb-3 d-block text-xs">Data Science Specialist</span>
-            <p class="mb-4">
-              7+ years experience in data analysis and machine learning. Former Data Scientist at Facebook.
-            </p>
-            <div class="d-flex justify-content-center gap-6 small">
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">18K+</span>
-                <span>Students</span>
-              </div>
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">12</span>
-                <span>Courses</span>
-              </div>
-            </div>
-            <div class="d-flex flex-row align-items-center justify-content-center gap-2 mt-4 mb-2">
-
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8 11v5" />
-                  <path d="M8 8v.01" />
-                  <path d="M12 16v-5" />
-                  <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-                  <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-brand-github ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12 12 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-
-              </a>
-            </div>
-
-          </div>
-        </div>
-        <!-- Mentor Card 4 -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card  shadow-sm h-100 rounded-5 text-center p-6 card-lift">
-            <div class="position-relative mb-4"><img src="./assets/images/avatar-2.jpg" alt="Mentor 4"
-                class="rounded-circle mb-4 mx-auto avatar avatar-xl border border-3 border-warning" />
-              <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                <span class="badge bg-warning text-xs">
-                  <span> 4.8</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-star text-white">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <h3 class="h6 fw-bold mb-1">Emma Davis</h3>
-            <span class="text-muted mb-3 d-block text-xs">Graphic Design Artist</span>
-            <p class="mb-4">
-              9+ years experience in graphic design and visual arts. Former Creative Director at Adobe.
-            </p>
-            <div class="d-flex justify-content-center gap-6 small">
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">22K+</span>
-                <span>Students</span>
-              </div>
-              <div class="d-flex flex-row gap-2">
-                <span class="fw-bold text-dark">9</span>
-                <span>Courses</span>
-              </div>
-            </div>
-            <div class="d-flex flex-row align-items-center justify-content-center gap-2 mt-4 mb-2">
-
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8 11v5" />
-                  <path d="M8 8v.01" />
-                  <path d="M12 16v-5" />
-                  <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-                  <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-                </svg>
-
-              </a>
-              <a href="#" class="btn rounded-circle btn-light btn-icon btn-xs">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon icon-tabler icons-tabler-brand-github ">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12 12 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-
-              </a>
-            </div>
-
-          </div>
-
-
-
-
-
-        </div>
-      </div>
   </section>
 
-  <section class="py-lg-13 py-8 position-relative" id="Ortografia">
-    <div class="circle-bg d-none d-lg-block"></div>
-    <div class="container py-lg-13">
-      <div class="row  align-items-center gy-8">
-        <div class="col-xl-6">
-          <div class="mb-10 pe-lg-12">
-            <span class="text-primary text-uppercase small fw-semibold"
-              style="letter-spacing: .125rem;">Community</span>
-            <h2 class="fw-bold mt-4 mb-4">Join Our Thriving <span class="text-primary">Learning
-                Community</span></h2>
-            <p class="mb-0">
-              Learning is better together. Join our community of 50,000+ students and unlock collaborative features that
-              accelerate your growth.
-            </p>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-users">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6">Study Groups</h4>
-                  <p class="mb-0 small">Connect with like-minded learners and form study groups for collaborative
-                    learning.</p>
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="col-md-6 mt-6 mt-md-0">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6">Discussion Forums</h4>
-                  <p class="mb-0 small">Engage in meaningful discussions and get answers from peers and mentors.</p>
-                </div>
-
-              </div>
-            </div>
-
-
-            <div class="col-md-6 mt-6">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-calendar-event">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <rect x="4" y="5" width="16" height="16" rx="2" />
-                    <line x1="16" y1="3" x2="16" y2="7" />
-                    <line x1="8" y1="3" x2="8" y2="7" />
-                    <line x1="4" y1="11" x2="20" y2="11" />
-                    <rect x="8" y="15" width="2" height="2" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6"> Live Sessions</h4>
-                  <p class="mb-0 small">Join live Q&A sessions and workshops with industry experts.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 mt-6">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                    <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
-                    <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6">Peer Support</h4>
-                  <p class="mb-0 small">Get help and support from fellow learners anytime you need it.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6 mt-6">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-world">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="12" cy="12" r="9" />
-                    <line x1="3.6" y1="9" x2="20.4" y2="9" />
-                    <line x1="3.6" y1="15" x2="20.4" y2="15" />
-                    <path d="M12 3a17.3 17.3 0 0 0 0 18" />
-                    <path d="M12 3a17.3 17.3 0 0 1 0 18" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6">Global Community</h4>
-                  <p class="mb-0 small">Connect with students from 150+ countries worldwide.</p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-6 mt-6">
-              <div class="d-flex gap-4">
-                <div class="icon-shape icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart-handshake">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                    <path
-                      d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
-                    <path d="M12.5 15.5l2 2" />
-                    <path d="M15 13l2 2" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="h6">Project Collaboration</h4>
-                  <p class="mb-0 small">Work on real-world projects with your peers.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="row mt-10">
-            <div class="col-lg-12">
-              <a href="#!" class="btn btn-primary">Join Community</a>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-xl-6">
-          <div class="card shadow-lg rounded-5">
-            <div class="card-body p-8 py-8">
-
-              <div class="row mb-4 justify-content-center gx-2 text-center ">
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-1.jpg" alt="Avatar 1"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-primary border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-2.jpg" alt="Avatar 2"
-                    class="rounded-circle avatar avatar-xxxl border border-3  border-warning border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-3.jpg" alt="Avatar 3"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-danger border-opacity-25" />
-                </div>
-              </div>
-              <div class="row mb-4 justify-content-center gx-2 text-center ">
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-3.jpg" alt="Avatar 1"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-primary border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-4.jpg" alt="Avatar 2"
-                    class="rounded-circle avatar avatar-xxxl border border-3  border-warning border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-5.jpg" alt="Avatar 3"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-danger border-opacity-25" />
-                </div>
-              </div>
-              <div class="row mb-4 justify-content-center gx-2 text-center ">
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-2.jpg" alt="Avatar 1"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-primary border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-1.jpg" alt="Avatar 2"
-                    class="rounded-circle avatar avatar-xxxl border border-3  border-warning border-opacity-25" />
-                </div>
-                <div class="col-lg-4 col-md-4 ">
-                  <img src="./assets/images/avatar-3.jpg" alt="Avatar 3"
-                    class="rounded-circle avatar avatar-xxxl border border-3 border-danger border-opacity-25" />
-                </div>
-              </div>
-            </div>
-            <div class="position-absolute top-0 end-0  me-lg-n8 mt-n4">
-              <div class="bg-white shadow-sm rounded-pill d-flex align-items-center gap-3 px-3 py-3  mb-4 border"
-                style="width: 200px;">
-                <div class="icon-shape icon-md rounded-circle bg-primary bg-opacity-10 text-primary ">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
-                  </svg>
-                </div>
-                <div class="d-flex flex-column">
-                  <span class="fw-bold">24/7 Support</span>
-                  <small>Always here</small>
-                </div>
-
-              </div>
-            </div>
-            <div class="position-absolute bottom-0 start-0  ms-md-n8 mb-n8">
-
-              <div class="bg-white shadow-sm rounded-pill d-flex align-items-center gap-3 px-3 py-3  mb-4 border"
-                style="width: 200px;">
-                <div class="icon-shape icon-md rounded-circle bg-primary bg-opacity-10 text-primary ">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-world">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                    <path d="M3.6 9h16.8" />
-                    <path d="M3.6 15h16.8" />
-                    <path d="M11.5 3a17 17 0 0 0 0 18" />
-                    <path d="M12.5 3a17 17 0 0 1 0 18" />
-                  </svg>
-                </div>
-                <div class="d-flex flex-column">
-                  <span class="fw-bold">150+ Countries</span>
-                  <small>Worldwide reach</small>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-  </section>
-  <section class="py-lg-13 py-8 bg-light bg-opacity-50" id="Participa">
-
+  <section class="py-lg-13 py-8 bg-light bg-opacity-25" id="Ortografia">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="text-center mb-10">
-            <span class="text-primary text-uppercase small fw-semibold"
-              style="letter-spacing: .125rem;">Testimonials</span>
-            <h2 class="fw-bold mt-4 mb-4"> What Our <span>Students</span> Say</h2>
-            <p>Join thousands of successful students who have transformed their careers with LearnHub.</p>
+      <div class="row text-center" style="margin-bottom: -50px;">
+        <div class="col-lg-9 mx-auto">
+          <div class="mb-10">
+            <h2 class="fw-bold mt-4 mb-4" style="color: #541388; font-size: 50px;">Practica Tu Ortografía</h2>
+            <p class="mb-0">
+              ¡Es hora de jugar y aprender! 🌟🔤 En esta actividad encontrarás letras desordenadas y una pequeña pista que te ayudará a descubrir la palabra correcta. 🧩✨
+            </p>
           </div>
-
         </div>
+      </div>
+      <div class="col-lg-6 mx-auto">
+          <div class="mb-10">
+            <h2 class="fw-bold mt-4 mb-4" style="font-size: 30px; text-align: center;">🧩 ¿Cómo Jugar?</h2>
+            <p class="mb-0" style="margin-top: -70px;">
+              <br><br><b>
+
+                  <br>1️⃣ Lee y escucha la pista con atención. 👀👂
+                  <br>2️⃣ Presiona en orden las letras.✨
+                  <br>3️⃣ ¡Demuestra cuánto aprendiste sobre ortografía y gramática!📝
+                  <br>
+                  <br>🎯 TIP: Recuerda todo lo que haz aprendido hasta ahora sobre gramática. ✅
+              </b>
+            </p>
+          </div>
 
       </div>
-      <div class="row gx-4 gy-6">
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"LearnHub completely transformed my career. The web development bootcamp gave me
-                  the skills I needed to land my dream job at Meta. The mentors are incredible!"</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">Alex Thompson
-                    </h6>
-                    <small>Software Developer at Meta</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"The UI/UX design course was exactly what I needed. The practical projects and
-                  mentor feedback helped me build a portfolio that got me hired at Spotify."</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-2.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">Jessica Lee
-                    </h6>
-                    <small>UX Designer at Spotify</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"I switched careers from marketing to data science thanks to LearnHub. The
-                  structured curriculum and supportive community made the transition seamless."</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-3.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">David Park
-                    </h6>
-                    <small>Data Analyst at Amazon</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"As a freelancer, I needed flexible learning. LearnHub's self-paced courses fit
-                  perfectly into my schedule. Highly recommend!"</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-4.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">Maria Garcia
-                    </h6>
-                    <small>Freelance Designer</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"The marketing course helped me understand how to grow my startup. The ROI has
-                  been incredible - best investment in my education."</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-5.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">James Wilson
-                    </h6>
-                    <small>Startup Founder</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="card rounded-5 shadow-sm h-100 border">
-            <div class="card-body p-6">
-              <div class="d-flex gap-0 align-items-center">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                  class="icon icon-tabler icons-tabler-filled icon-tabler-star text-warning">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path
-                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.093 -6.26l3.093 6.26l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </div>
-              <div class="mt-4 mb-2">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-quote text-primary">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />
-                  </svg>
-                </span>
-
-              </div>
-              <div>
-                <p class=" fw-semibold">"The combination of technical and business courses gave me a unique edge. I've
-                  recommended LearnHub to all my colleagues."</p>
-              </div>
-              <div class="mt-7 pt-5 border-top">
-                <div class="d-flex gap-3 align-items-center">
-                  <img src="./assets/images/avatar-6.jpg" alt="" class="avatar avatar-md rounded-circle">
-                  <div>
-                    <h6 class="mb-0">Emily Chen
-                    </h6>
-                    <small>Product Manager at Google</small>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
+      <div class="row text-center">
+        <iframe class="col-lg-10 mx-auto" style="max-width:100%; " src="https://wordwall.net/es/embed/e68439449af84325bff99566a928c19b?themeId=41&templateId=38&fontStackId=0" width="500" height="600" frameborder="0" allowfullscreen></iframe>
       </div>
-
     </div>
+  </section>
+
+  <section class="py-lg-13 py-8 bg-light bg-opacity-25" id="Participa">
+    <div class="container">
+      <div class="row text-center" style="margin-bottom: -50px;">
+        <div class="col-lg-9 mx-auto">
+          <div class="mb-10">
+            <h2 class="fw-bold mt-4 mb-4" style="color: #541388; font-size: 50px;">¡Participa!</h2>
+            <p class="mb-0">
+              ¡Ahora es tu turno de participar! 🌟 Escribe tu propio cuento, comparte tus ideas y demuestra toda tu creatividad mientras aprendes y te diviertes. 🎨📚 <b>Selecciona una pestaña de abajo: ¿Quieres escribir tu propio cuento? o ¿Debes responder una pregunta de un foro?</b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-8">
+        <div class="col-lg-10 mx-auto">
+          <div class="participa-tabs-container">
+            <div class="participa-tabs-nav">
+              <button class="participa-tab-btn active" data-tab="participa-tab1">Crea Tu Propio Cuento</button>
+              <button class="participa-tab-btn" data-tab="participa-tab2">Responde al Foro</button>
+            </div>
+            <div class="participa-tabs-content">
+              <div class="participa-tab-pane active" id="participa-tab1">
+                      <div class="col-lg-6 mx-auto">
+                          <div class="mb-10">
+                            <h2 class="fw-bold mt-4 mb-4" style="font-size: 30px;">🧩 ¿Cómo responder las preguntas?</h2>
+                            <p class="mb-0" style="margin-top: -70px;">
+                              <br><br><b>
+
+                                  <br>1️⃣ Lee el cuento con mucha atención. 👀📖
+                                  <br>2️⃣ Presiona el botón “Responder preguntas”. ✨
+                                  <br>3️⃣ Se abrirá una ventana con preguntas del cuento. 📝
+                                  <br>4️⃣ Marca la respuesta que creas correcta. ✅
+                                  <br>5️⃣ Cuando termines, presiona “Calificar” para descubrir cuántas respuestas acertaste. 🌟🎉
+
+                                  <br><br>¡Diviértete aprendiendo y demuestra todo lo que entendiste del cuento! 🚀
+                              </b>
+                            </p>
+                          </div>
+                      </div>
+                <form class="participa-form" data-email-address="samuelbustos11grd@gmail.com" data-subject="Nuevo cuento enviado">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Nombre completo</label>
+                      <input type="text" class="form-control" name="nombre" required placeholder="Tu nombre completo">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Grado / Grupo</label>
+                      <input type="text" class="form-control" name="grado" required placeholder="Ej. 5° A">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Correo electrónico (opcional)</label>
+                      <input type="email" class="form-control" name="correo" placeholder="Tu correo electrónico">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Título del cuento</label>
+                      <input type="text" class="form-control" name="titulo" required placeholder="Título del cuento">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Texto del cuento</label>
+                      <textarea class="form-control" name="cuento" rows="6" required placeholder="Escribe tu cuento aquí..."></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Imagen (opcional)</label>
+                      <input type="file" class="form-control" name="imagen" accept="image/*">
+                    </div>
+                  </div>
+                  <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-primary px-5">Enviar</button>
+                  </div>
+                  <div class="form-feedback mt-3"></div>
+                </form>
+              </div>
+              <div class="participa-tab-pane" id="participa-tab2">
+                <form class="participa-form" data-email-address="samuelbustos11grd@gmail.com" data-subject="Respuesta al foro">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Nombre completo</label>
+                      <input type="text" class="form-control" name="nombre" required placeholder="Tu nombre completo">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Grado / Grupo</label>
+                      <input type="text" class="form-control" name="grado" required placeholder="Ej. 5° A">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Correo electrónico (opcional)</label>
+                      <input type="email" class="form-control" name="correo" placeholder="Tu correo electrónico">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Respuesta del foro</label>
+                      <textarea class="form-control" name="respuesta" rows="6" required placeholder="Escribe tu respuesta al foro aquí..."></textarea>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-primary px-5">Enviar</button>
+                  </div>
+                  <div class="form-feedback mt-3"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </section>
 
