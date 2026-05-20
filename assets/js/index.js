@@ -217,58 +217,68 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-
-  // Participa form submit handlers (real email sending via backend)
-  const participaForms = document.querySelectorAll('.participa-form');
-  participaForms.forEach(form => {
-    form.addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const email = form.dataset.emailAddress || '';
-      const subject = form.dataset.subject || 'Formulario de Participa';
-      const formData = new FormData(form);
-      formData.append('subject', subject);
-      if (email) {
-        formData.append('to', email);
-      }
-
-      const feedback = form.querySelector('.form-feedback');
-      if (feedback) {
-        feedback.innerHTML = '<div class="alert alert-info">Enviando mensaje...</div>';
-      }
-
-      try {
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          body: formData,
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result.message || 'Error al enviar el formulario.');
-        }
-
-        if (feedback) {
-          feedback.innerHTML = `
-            <div class="alert alert-success">
-              <strong>¡Listo!</strong> Tu formulario se envió correctamente.
-            </div>
-          `;
-        }
-
-        form.reset();
-      } catch (error) {
-        if (feedback) {
-          feedback.innerHTML = `
-            <div class="alert alert-danger">
-              <strong>Error:</strong> ${error.message}
-            </div>
-          `;
-        }
-      }
-    });
-  });
 });
+
+
+const form = document.querySelector('form.participa-form[action="https://api.web3forms.com/submit"]');
+const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+// Inputs mapped to the form fields
+const nombreInput = form ? form.querySelector('input[name="nombre"]') : null;
+const gradoInput = form ? form.querySelector('input[name="grado"]') : null;
+const correoInput = form ? form.querySelector('input[name="correo"]') : null;
+const tituloInput = form ? form.querySelector('input[name="titulo"]') : null;
+const cuentoInput = form ? form.querySelector('textarea[name="cuento"]') : null;
+
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // Ensure values come from the current inputs (keeps names in sync)
+    if (nombreInput) formData.set('nombre', nombreInput.value || '');
+    if (gradoInput) formData.set('grado', gradoInput.value || '');
+    if (correoInput) formData.set('correo', correoInput.value || '');
+    if (tituloInput) formData.set('titulo', tituloInput.value || '');
+    if (cuentoInput) formData.set('cuento', cuentoInput.value || '');
+    // No file inputs: image attachment removed per request
+
+    // web3forms access key (form already includes hidden input, but keep for safety)
+    formData.set('access_key', 'a315e0ab-e6b8-4164-94ca-fa4b6dfc2bbe');
+
+    const originalText = submitBtn ? submitBtn.textContent : '';
+
+    if (submitBtn) {
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Muy bien! Tu Cuento ha sido enviado.');
+        form.reset();
+      } else {
+        alert('Error: ' + (data.message || 'Unknown error'));
+      }
+
+    } catch (error) {
+      alert('Lo siento, ocurrió un error al enviar tu cuento. Por favor, inténtalo de nuevo más tarde.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+  });
+}
 
 
 
